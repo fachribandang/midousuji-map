@@ -1,12 +1,12 @@
 <div class="container mt-5 py-4 row mx-auto">
   <div class="col-12 mb-3">
-    <span class="text-success border-bottom border-3 border-success fs-1 pb-2">避難場所の受入状況ゾーン１</span>
+    <span class="text-success border-bottom border-3 border-success fs-1 pb-2">避難場所の受入状況ゾーン４</span>
   </div>
   <div class="col-12 col-sm-6">
-    <div id="midousuji-road-1" class="row p-2 m-0">
-      <div id="west-offices-zone-1" class="col-5">
+    <div id="midousuji-road-4" class="row p-2 m-0">
+      <div id="west-offices-zone-4" class="col-5">
         <?php
-          foreach ($west_offices_id_1 as &$office) {
+          foreach ($west_offices_id_4 as &$office) {
             render_offices($office);
           }
         ?>
@@ -15,9 +15,9 @@
         <div style="min-height:400px;">
         </div>
       </div>
-      <div id="east-offices-zone-1" class="col-5">
+      <div id="east-offices-zone-4" class="col-5">
         <?php
-          foreach ($east_offices_id_1 as &$office) {
+          foreach ($east_offices_id_4 as &$office) {
             render_offices($office);
           }
         ?>
@@ -38,7 +38,7 @@
       <tbody>
         <?php
           $offices = get_all_facilities_accepting_evacuation();
-          $offices = filter_zone ($offices,(array_merge($east_offices_id_1,$west_offices_id_1)));
+          $offices = filter_zone ($offices,(array_merge($east_offices_id_4,$west_offices_id_4)));
           foreach ($offices as &$office) {
             render_facilities_accepting_evacuation($office);
           }

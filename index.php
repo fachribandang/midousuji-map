@@ -26,6 +26,12 @@ include "server.php"; ?>
               <li class="nav-item">
                 <a class="nav-link active border-start" aria-current="page" href="?page=zone-2">ゾーン⓶</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link active border-start" aria-current="page" href="?page=zone-3">ゾーン⓷</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active border-start" aria-current="page" href="?page=zone-4">ゾーン⓸</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -39,6 +45,12 @@ include "server.php"; ?>
         break;
       case "zone-2":
         include 'page/zone-2.php';
+        break;
+      case "zone-3":
+        include 'page/zone-3.php';
+        break;
+      case "zone-4":
+        include 'page/zone-4.php';
         break;
       default:
         include 'page/error.php';

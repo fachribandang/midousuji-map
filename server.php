@@ -50,6 +50,28 @@ $west_offices_id_2=[
     23,
     26,
 ];
+$west_offices_id_3=[
+    28,
+    29,
+    31,
+    32,
+    36,
+    37,
+    40,
+    39,
+];
+$west_offices_id_4=[
+    42,
+    43,
+    45,
+    46,
+    47,
+    50,
+    49,
+    52,
+    53,
+    54,
+];
 $west_offices_1=[
     "日土地淀屋橋ビル",
     "淀屋橋今西ビル",
@@ -130,6 +152,19 @@ $east_offices_id_2=[
     24,
     25,
 ];
+$east_offices_id_3=[
+    27,
+    30,
+    33,
+    34,
+    35,
+    38,
+];
+$east_offices_id_4=[
+    41,
+    44,
+    51,
+];
 $east_offices_1=[
     "日土地淀屋橋ビル",
     "淀屋橋今西ビル",
@@ -164,6 +199,7 @@ $Landmark=[
     "土佐掘川",
     "本町駅",
 ]; 
+
 function bg_for_accepting_evacuation ($key) {
     $offices = get_all_facilities_accepting_evacuation();
     $result = '';
