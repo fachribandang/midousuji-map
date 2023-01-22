@@ -40,36 +40,38 @@ include "server.php"; ?>
       </nav>
     </header>
     <div class="container mt-5 py-4 row mx-auto">
-    <div class="col-12 mb-3">
-      <span class="text-success border-bottom border-3 border-success fs-1 pb-2">避難場所の受入状況</span>
-    </div>
-      <div class="col-6">
-        <div class="border row p-2 m-0">
-          <div class="col-5 p-0">
+      <div class="col-12 mb-3">
+        <span class="text-success border-bottom border-3 border-success fs-1 pb-2">避難場所の受入状況</span>
+      </div>
+      <div class="col-12 col-sm-6">
+        <div id="midousuji-road" class="border row p-2 m-0">
+          <div id="west-offices-zone-1" class="col-5">
             <?php
-            foreach (get_all_offices() as &$office) {
+            foreach ($west_offices_id_1 as &$office) {
               render_offices($office);
             }
             ?>
-          </div>
-          <div class="col-2 p-0 bg-success text-dark bg-opacity-10">
-            <div id="" class="h-100">
+          </div> 
+          <div class="col-2 p-0 bg- text-dark bg-opacity-10">
+            <div style="min-height:400px;">
             </div>
           </div>
-          <div class="col-5 p-0">
+          <div id="east-offices-zone-1" class="col-5">
             <?php
-            foreach (get_all_offices() as &$office) {
+            foreach ($east_offices_id_1 as &$office) {
               render_offices($office);
             }
             ?>
           </div>
         </div>
       </div>
-      <div class="col-6">
+      <div class="col-12 col-sm-6">
+          <div class="row ps-3 pt-2">
+            <span id="box" class="bg-success"></span><span class="col">受入中</span>
+          </div>
         <table class="table">
           <thead>
               <tr>
-              <th scope="col">No</th>
               <th scope="col">ID</th>
               <th scope="col">施設</th>
               </tr>
@@ -77,25 +79,9 @@ include "server.php"; ?>
           <tbody>
               <?php
                   // Fetech user data based on id
-                  $offices = 
-                  mysqli_query($db, 
-                  "SELECT offices.name,offices.id
-                  FROM offices
-                  JOIN facilities ON offices.id=facilities.office_id
-                  WHERE facilities.name='屋内' AND facilities.acceptance_status=3;");
-                  $count=1;
-                  while($user_data = mysqli_fetch_array($offices))
-                  {
-                      $id = $user_data['id'];
-                      $name = $user_data['name'];
-                  echo <<< HEREDOC
-                  <tr>
-                      <th scope="row">{$count}</th>
-                      <td>{$id}</td>
-                      <td>{$name}</td>
-                  </tr>
-                  HEREDOC;
-                  $count++;
+                  $offices = get_all_facilities_accepting_evacuation();
+                  foreach ($offices as &$office) {
+                    render_facilities_accepting_evacuation($office);
                   }
               ?>
               </tr>
@@ -103,9 +89,6 @@ include "server.php"; ?>
         </table>
       </div>
     </div>
-    <?php
-    var_dump([0]['name']);
-    ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
 </html>

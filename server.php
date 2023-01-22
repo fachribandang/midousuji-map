@@ -1,5 +1,6 @@
 <?php
-$left_offices=[
+// nishi west
+$west_offices=[
     "ミズノ 淀屋橋店",
     "淀屋橋今西ビル",
     "三井住友海上大阪淀屋橋ビル",
@@ -32,7 +33,23 @@ $left_offices=[
     "ザ・ビー 大阪 御堂筋",
     "御堂筋ダイビル",
 ];
-$left_offices_1=[
+$east_offices_id_1=[
+    1,
+    2,
+    5,
+    8,
+    9,
+    12,
+];
+$west_offices_id_1=[
+    3,
+    4,
+    6,
+    10,
+    11,
+    13,
+];
+$west_offices_1=[
     "日土地淀屋橋ビル",
     "淀屋橋今西ビル",
     "三井住友海上大阪淀屋橋ビル",
@@ -40,7 +57,7 @@ $left_offices_1=[
     "大阪興銀ビル",
     "大阪朝日生命会館",
 ];
-$left_offices_2=[
+$west_offices_2=[
     "朝日生命館",
     "ランドアクシスタワー",
     "明治安田生命大阪御堂筋ビル",
@@ -49,7 +66,7 @@ $left_offices_2=[
     "大阪ガスビルディング",
     "オービック御堂筋ビル",
 ];
-$left_offices_3=[
+$west_offices_3=[
     "UD御堂筋ビル",
     "損保ジャパン大阪ビル",
     "京阪神瓦町ビル",
@@ -59,7 +76,7 @@ $left_offices_3=[
     "相愛大学本町学舎",
     "御堂ビルディング",
 ];
-$left_offices_4=[
+$west_offices_4=[
     "東芝大阪ビル",
     "ヨドコウビル",
     "イヨビルディング(株)",
@@ -71,7 +88,9 @@ $left_offices_4=[
     "ザ・ビー 大阪 御堂筋",
     "御堂筋ダイビル",
 ]; 
-$right_offices=[
+// higashi East
+
+$east_offices=[
     "日土地淀屋橋ビル",
     "淀屋橋今西ビル",
     "日本生命保険相互会社 本店",
@@ -94,7 +113,7 @@ $right_offices=[
     "イトゥビル",
     "本町南ガーデンシティ",
 ]; 
-$right_offices_1=[
+$east_offices_1=[
     "日土地淀屋橋ビル",
     "淀屋橋今西ビル",
     "日本生命保険相互会社 本店",
@@ -102,7 +121,7 @@ $right_offices_1=[
     "淀屋橋東京海上日動ビルディング",
     "三菱UFJ銀行大阪ビル 本館",
 ];
-$right_offices_2=[
+$east_offices_2=[
     "三菱UFJ信託銀行大阪ビル",
     "大阪ガス御堂筋東ビル",
     "京阪神 御堂筋ビル",
@@ -110,7 +129,7 @@ $right_offices_2=[
     "あいおいニッセイ同和損保御堂筋ビル",
     "創建御堂筋ビル",
 ];
-$right_offices_3=[
+$east_offices_3=[
     "NREG御堂筋ビル",
     "銀泉備後町ビル",
     "KFセンタービル",
@@ -118,7 +137,7 @@ $right_offices_3=[
     "御堂筋安土町ビル",
     "御堂筋本町ビル",
 ];
-$right_offices_4=[
+$east_offices_4=[
     "本町ガーデンシティ",
     "イトゥビル",
     "本町南ガーデンシティ",
@@ -128,10 +147,30 @@ $Landmark=[
     "土佐掘川",
     "本町駅",
 ]; 
-function render_offices($office){
+function bg_for_accepting_evacuation ($key) {
+    $offices = get_all_facilities_accepting_evacuation();
+    $result = '';
+    foreach ($offices as &$office) {
+        if($office['id']==$key){
+            $result = 'bg-success';
+            break;
+        }
+    }
+    return $result;
+}
+function render_facilities_accepting_evacuation ($office){
     echo <<< HEREDOC
-    <div id="box" class="mb-2 mx-1  text-center">
-      <span>{$office['id']}</span><br>
+    <tr>
+        <td>{$office['id']}</td>
+        <td>{$office['name']}</td>
+    </tr>
+    HEREDOC;
+}
+function render_offices($office){
+    $bg_box = bg_for_accepting_evacuation ($office);
+    echo <<< HEREDOC
+    <div id="box" class="text-center box-id-{$office} {$bg_box}">
+      <span>{$office}</span><br>
     </div>
     HEREDOC;
 }

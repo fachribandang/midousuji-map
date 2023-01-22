@@ -1,18 +1,71 @@
 :root{
     --primary:rgba(249, 203, 118, 1);
 }
-
-#box{
-    // width: 50px;
-    // height: 50px;
-    border: solid 2px rgb(251, 187, 67);
-    background-color:rgba(249, 203, 118, 1);
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
+#midousuji-road{
+    background-image: url("images/zone-1.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 240px;
+    height: auto;
 }
+#west-offices-zone-1{
+    margin-top: 100px;
+    padding-left: 50px;
+}
+#east-offices-zone-1{
+    margin-top: 100px;
+    padding-left: 20px;
+}
+#box{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px rgb(251, 187, 67, 0);
+    background-color: rgba(249, 203, 118, 0);
+    font-weight: bolder;
+}
+.box-id-1{
+    margin-top: 10px;
+}
+.box-id-2{
+    margin-top: 15px;
+}
+.box-id-3{
+    margin-left:10px;
+}
+.box-id-4{
+    margin-top:20px;
+}
+.box-id-5{
+    margin-top:35px;
+}
+.box-id-6{
+    margin-top:35px;
+}
+.box-id-8{
+    margin-top:33px;
+}
+.box-id-9{
+    margin-top:6px;
+}
+.box-id-10{
+    margin-top:35px;
+}
+.box-id-11{
+    margin-top:6px;
+}
+.box-id-12{
+    margin-top:15px;
+}
+.box-id-13{
+    margin-top:15px;
+    margin-left:15px;
+}
+
 #road{
     margin: auto;
     min-width: 25px;
-
 }
