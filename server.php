@@ -33,14 +33,6 @@ $west_offices=[
     "ザ・ビー 大阪 御堂筋",
     "御堂筋ダイビル",
 ];
-$east_offices_id_1=[
-    1,
-    2,
-    5,
-    8,
-    9,
-    12,
-];
 $west_offices_id_1=[
     3,
     4,
@@ -48,6 +40,15 @@ $west_offices_id_1=[
     10,
     11,
     13,
+];
+$west_offices_id_2=[
+    14,
+    15,
+    16,
+    19,
+    20,
+    23,
+    26,
 ];
 $west_offices_1=[
     "日土地淀屋橋ビル",
@@ -88,8 +89,8 @@ $west_offices_4=[
     "ザ・ビー 大阪 御堂筋",
     "御堂筋ダイビル",
 ]; 
-// higashi East
 
+// higashi East
 $east_offices=[
     "日土地淀屋橋ビル",
     "淀屋橋今西ビル",
@@ -113,6 +114,22 @@ $east_offices=[
     "イトゥビル",
     "本町南ガーデンシティ",
 ]; 
+$east_offices_id_1=[
+    1,
+    2,
+    5,
+    8,
+    9,
+    12,
+];
+$east_offices_id_2=[
+    17,
+    18,
+    21,
+    22,
+    24,
+    25,
+];
 $east_offices_1=[
     "日土地淀屋橋ビル",
     "淀屋橋今西ビル",
@@ -158,7 +175,18 @@ function bg_for_accepting_evacuation ($key) {
     }
     return $result;
 }
-function render_facilities_accepting_evacuation ($office){
+function filter_zone ($offices_list,$offices_id_list) {
+    $result=[];
+    foreach ($offices_list as &$offices) {
+        foreach ($offices_id_list as &$id) {
+            if($offices['id']==$id){
+                array_push($result,$offices);
+            }
+        }
+    }
+    return $result;
+}
+function render_facilities_accepting_evacuation ($office) {
     echo <<< HEREDOC
     <tr>
         <td>{$office['id']}</td>
@@ -166,7 +194,7 @@ function render_facilities_accepting_evacuation ($office){
     </tr>
     HEREDOC;
 }
-function render_offices($office){
+function render_offices ($office) {
     $bg_box = bg_for_accepting_evacuation ($office);
     echo <<< HEREDOC
     <div id="box" class="text-center box-id-{$office} {$bg_box}">
