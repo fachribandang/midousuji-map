@@ -1,6 +1,7 @@
 
 #box{
     opacity: 0;
+    color: rgba(1,1,1,0) !important;
     width: 17px !important;
     height: 17px !important;
     font-size: 13px;
@@ -11,6 +12,31 @@
     background-size: contain;
     width: 125px;
     height: 550px;
+}
+#midousuji-road-nav{
+    width: 125px;
+    height: 550px;
+
+}
+#road-nav-1, #road-nav-2, #road-nav-3, #road-nav-4{
+    margin-top: 10px;
+    padding: 49px 0px 49px 0px; 
+    a{
+        color: black !important;
+    }   
+}
+#midousuji-road-nav a{
+    color: black !important;
+    text-decoration: none;
+    padding-left: 10px;
+    transition: all ease 0.3s;
+}   
+#midousuji-road-nav a:hover{
+    color: green !important;
+    padding-left: 12px;
+}   
+#road-nav-1{
+    margin-top: 30px;
 }
 #all-west-offices{
     padding-left: 25px !important;

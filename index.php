@@ -20,10 +20,10 @@ include "server.php"; ?>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link <?php get_status_for_navigation("edit")?> border-start border-end" aria-current="page" href="?page=edit">受入状況編集</a>
+                <a class="nav-link <?php get_status_for_navigation("edit")?> border-start border-end text-center" aria-current="page" href="?page=edit">受入状況編集</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link <?php get_status_for_navigation("all-zone")?> border-start border-end" aria-current="page" href="?page=all-zone">全体地図</a>
+                <a class="nav-link <?php get_status_for_navigation("all-zone")?> border-start border-end text-center" aria-current="page" href="?page=all-zone">全体地図</a>
               </li>
               <li class="nav-item">
                 <span class="nav-link active ">ゾーン：</span>
