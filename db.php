@@ -3,6 +3,10 @@ $servername = "localhost";
 $database = "d076c94idb3";
 $username = "root";
 $password = "";
+// $servername = "sql110.epizy.com";
+// $database = "epiz_33432439_d076c94idb3";
+// $username = "epiz_33432439";
+// $password = "WKxQVeY2QZUsw";
 // Create connection
 $db = mysqli_connect($servername, $username, $password, $database);
 // Check connection
