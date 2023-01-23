@@ -15,15 +15,30 @@ if (!$db) {
         $query = "SELECT * FROM `offices` WHERE 1";
         return mysqli_fetch_all ( mysqli_query($db, $query), MYSQLI_ASSOC);
     }
+    function get_all_facilities_offices () {
+        global $db;
+        $query = 
+        "SELECT `offices`.`id`,`offices`.`name`,`offices`.`poition`,`offices`.`map_url`,`facilities`.`acceptance_status`
+        FROM `offices`
+        JOIN `facilities` ON `offices`.`id`= `facilities`.`office_id`
+        WHERE `facilities`.`name`='屋内'";
+        return mysqli_fetch_all ( mysqli_query($db, $query), MYSQLI_ASSOC);
+    }
     function get_all_facilities_accepting_evacuation () {
         global $db;
         $query = 
         "SELECT offices.name,offices.id
         FROM offices
         JOIN facilities ON offices.id=facilities.office_id
-        WHERE facilities.name='屋内' AND facilities.acceptance_status=3;";
+        WHERE facilities.name='屋内' AND facilities.acceptance_status = 3;";
         return mysqli_fetch_all ( mysqli_query($db, $query), MYSQLI_ASSOC);
     }
+    function set_facilities_status ($id, $status) {
+        global $db;
+        $query = "UPDATE `facilities` SET `acceptance_status`= $status WHERE `facilities`.`office_id`= $id AND `facilities`.`name`='屋内';";
+        mysqli_query($db, $query);
+    }
+
 }
 
 

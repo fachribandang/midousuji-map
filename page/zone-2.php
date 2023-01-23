@@ -7,7 +7,7 @@
       <div id="west-offices-zone-2" class="col-5">
         <?php
           foreach ($west_offices_id_2 as &$office) {
-            render_offices($office);
+            render_office($office);
           }
         ?>
       </div>
@@ -18,7 +18,7 @@
       <div id="east-offices-zone-2" class="col-5">
         <?php
           foreach ($east_offices_id_2 as &$office) {
-            render_offices($office);
+            render_office($office);
           }
         ?>
       </div>
@@ -40,7 +40,7 @@
           $offices = get_all_facilities_accepting_evacuation();
           $offices = filter_zone ($offices,(array_merge($east_offices_id_2,$west_offices_id_2)));
           foreach ($offices as &$office) {
-            render_facilities_accepting_evacuation($office);
+            render_facilitie_accepting_evacuation($office);
           }
         ?>
         </tr>

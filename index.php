@@ -20,19 +20,19 @@ include "server.php"; ?>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active border-start" aria-current="page" href="?page=edit">受入状況編集</a>
+                <a class="nav-link <?php get_status_for_navigation("edit")?> border-start border-end" aria-current="page" href="?page=edit">受入状況編集</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active border-start" aria-current="page" href="?page=zone-1">ゾーン⓵</a>
+                <a class="nav-link <?php get_status_for_navigation("zone-1")?> border-start border-end" aria-current="page" href="?page=zone-1">ゾーン⓵</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active border-start" aria-current="page" href="?page=zone-2">ゾーン⓶</a>
+                <a class="nav-link <?php get_status_for_navigation("zone-2")?> border-start border-end" aria-current="page" href="?page=zone-2">ゾーン⓶</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active border-start" aria-current="page" href="?page=zone-3">ゾーン⓷</a>
+                <a class="nav-link <?php get_status_for_navigation("zone-3")?> border-start border-end" aria-current="page" href="?page=zone-3">ゾーン⓷</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active border-start" aria-current="page" href="?page=zone-4">ゾーン⓸</a>
+                <a class="nav-link <?php get_status_for_navigation("zone-4")?> border-start border-end" aria-current="page" href="?page=zone-4">ゾーン⓸</a>
               </li>
             </ul>
           </div>

@@ -1,6 +1,9 @@
 :root{
     --primary:rgba(249, 203, 118, 1);
 }
+.bg-success-op75{
+    background-color: rgb(25 135 84 / 75%) !important;
+}
 #box{
     width: 30px;
     height: 30px;
@@ -8,8 +11,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid 2px rgb(251, 187, 67, 0);
-    background-color: rgba(249, 203, 118, 0);
     font-weight: bolder;
 }
 #midousuji-road-1{

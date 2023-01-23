@@ -199,19 +199,38 @@ $Landmark=[
     "土佐掘川",
     "本町駅",
 ]; 
-
-function bg_for_accepting_evacuation ($key) {
+function get_status_for_navigation ($key) {
+    $page = (isset($_GET['page'])) ? $_GET['page'] : "zone-1";
+    $result = "";
+    if($page == $key){
+        $result = "active";
+    }
+    echo $result;
+}
+function get_acceptance_status_button ($id,$status) {
+    if($status == 3){
+        $result = <<< HEREDOC
+            <a class="btn btn-sm btn-success p-1"  href="./handler/edit_acceptance_status.php?id={$id}&status=NULL">受入中</a>
+        HEREDOC;
+    }else{
+        $result = <<< HEREDOC
+            <a class="btn btn-sm btn-secondary p-1" href="./handler/edit_acceptance_status.php?id={$id}&status=3">受入不可</a>
+        HEREDOC;
+    }
+    return $result;
+}
+function get_bg_for_accepting_evacuation ($key) {
     $offices = get_all_facilities_accepting_evacuation();
     $result = '';
     foreach ($offices as &$office) {
         if($office['id']==$key){
-            $result = 'bg-success';
+            $result = 'bg-success-op75 border border-2 border-success';
             break;
         }
     }
     return $result;
 }
-function filter_zone ($offices_list,$offices_id_list) {
+function filter_zone ($offices_list, $offices_id_list) {
     $result=[];
     foreach ($offices_list as &$offices) {
         foreach ($offices_id_list as &$id) {
@@ -222,7 +241,7 @@ function filter_zone ($offices_list,$offices_id_list) {
     }
     return $result;
 }
-function render_facilities_accepting_evacuation ($office) {
+function render_facilitie_accepting_evacuation ($office) {
     echo <<< HEREDOC
     <tr>
         <td>{$office['id']}</td>
@@ -230,8 +249,18 @@ function render_facilities_accepting_evacuation ($office) {
     </tr>
     HEREDOC;
 }
-function render_offices ($office) {
-    $bg_box = bg_for_accepting_evacuation ($office);
+function render_facilitie_accepting_editor ($office) {
+    $button = get_acceptance_status_button($office['id'],$office['acceptance_status']);
+    echo <<< HEREDOC
+    <tr>
+        <td>{$office['id']}</td>
+        <td>{$office['name']}</td>
+        <td>{$button}</td>
+    </tr>
+    HEREDOC;
+}
+function render_office ($office) {
+    $bg_box = get_bg_for_accepting_evacuation ($office);
     echo <<< HEREDOC
     <div id="box" class="text-center box-id-{$office} {$bg_box}">
       <span>{$office}</span><br>
