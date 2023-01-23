@@ -23,16 +23,22 @@ include "server.php"; ?>
                 <a class="nav-link <?php get_status_for_navigation("edit")?> border-start border-end" aria-current="page" href="?page=edit">受入状況編集</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link <?php get_status_for_navigation("zone-1")?> border-start border-end" aria-current="page" href="?page=zone-1">ゾーン⓵</a>
+                <a class="nav-link <?php get_status_for_navigation("all-zone")?> border-start border-end" aria-current="page" href="?page=all-zone">全体地図</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link <?php get_status_for_navigation("zone-2")?> border-start border-end" aria-current="page" href="?page=zone-2">ゾーン⓶</a>
+                <span class="nav-link active ">ゾーン：</span>
               </li>
               <li class="nav-item">
-                <a class="nav-link <?php get_status_for_navigation("zone-3")?> border-start border-end" aria-current="page" href="?page=zone-3">ゾーン⓷</a>
+                <a class="nav-link <?php get_status_for_navigation("zone-1")?> border-start border-end text-center" aria-current="page" href="?page=zone-1">⓵</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link <?php get_status_for_navigation("zone-4")?> border-start border-end" aria-current="page" href="?page=zone-4">ゾーン⓸</a>
+                <a class="nav-link <?php get_status_for_navigation("zone-2")?> border-start border-end text-center" aria-current="page" href="?page=zone-2">⓶</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link <?php get_status_for_navigation("zone-3")?> border-start border-end text-center" aria-current="page" href="?page=zone-3">⓷</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link <?php get_status_for_navigation("zone-4")?> border-start border-end text-center" aria-current="page" href="?page=zone-4">⓸</a>
               </li>
             </ul>
           </div>
@@ -42,6 +48,9 @@ include "server.php"; ?>
     <?php
     $page = (isset($_GET['page'])) ? $_GET['page'] : "zone-1";
     switch ($page) {
+      case "all-zone":
+        include 'page/all-zone.php';
+        break;
       case "zone-1":
         include 'page/zone-1.php';
         break;
