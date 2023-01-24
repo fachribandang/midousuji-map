@@ -1,3 +1,4 @@
+<?php add_css("zone-3.scss") ?>
 <div class="container mt-5 py-4 row mx-auto">
   <div class="col-12 mb-3">
     <span class="text-success border-bottom border-3 border-success fs-1 pb-2">避難場所の受入状況ゾーン３</span>

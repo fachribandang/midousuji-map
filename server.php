@@ -1,4 +1,62 @@
 <?php
+// all zone
+$all_west_offices_id=[
+    3,
+    4,
+    6,
+    10,
+    11,
+    13,
+    14,
+    15,
+    16,
+    19,
+    20,
+    23,
+    26,
+    28,
+    29,
+    31,
+    32,
+    36,
+    37,
+    40,
+    39,
+    42,
+    43,
+    45,
+    46,
+    47,
+    50,
+    49,
+    52,
+    53,
+    54,
+];
+$all_east_offices_id=[
+    1,
+    2,
+    5,
+    8,
+    9,
+    12,
+    17,
+    18,
+    21,
+    22,
+    24,
+    25,
+    27,
+    30,
+    33,
+    34,
+    35,
+    38,
+    41,
+    44,
+    51,
+];
+
 // nishi west
 $west_offices=[
     "ミズノ 淀屋橋店",
@@ -267,4 +325,18 @@ function render_office ($office) {
     </div>
     HEREDOC;
 }
+function add_css ($cssName) {
+    echo <<< HEREDOC
+    <script type="text/javascript">
+        var name = "$cssName"
+        var link = document.createElement( "link" );
+        link.href = "./style/" + name;
+        link.type = "text/css";
+        link.rel = "stylesheet";
+        link.media = "screen,print";
+        document.getElementsByTagName( "head" )[0].appendChild( link );
+    </script>
+    HEREDOC;
+}
 ?>
+

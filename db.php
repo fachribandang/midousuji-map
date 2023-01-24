@@ -22,7 +22,7 @@ if (!$db) {
     function get_all_facilities_offices () {
         global $db;
         $query = 
-        "SELECT `offices`.`id`,`offices`.`name`,`offices`.`poition`,`offices`.`map_url`,`facilities`.`acceptance_status`
+        "SELECT `offices`.`id`,`offices`.`name`,`offices`.`map_url`,`facilities`.`acceptance_status`
         FROM `offices`
         JOIN `facilities` ON `offices`.`id`= `facilities`.`office_id`
         WHERE `facilities`.`name`='屋内'";
