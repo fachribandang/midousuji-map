@@ -42,7 +42,6 @@ if (!$db) {
         $query = "UPDATE `facilities` SET `acceptance_status`= $status WHERE `facilities`.`office_id`= $id AND `facilities`.`name`='屋内';";
         mysqli_query($db, $query);
     }
-
 }
 
 
