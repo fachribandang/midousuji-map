@@ -1,51 +1,42 @@
-<?php add_css("zone-2.scss") ?>
-<div class="container mt-5 py-4 row mx-auto">
-  <div class="col-12 mb-3">
-    <span class="text-success border-bottom border-3 border-success fs-1 pb-2">避難場所の受入状況ゾーン２</span>
+<?php add_css("zone-2.css") ?>
+<div class="content-wrapper">
+  <!-- title -->
+  <div class="title-wrapper">
+    <h1>　本町駅周辺　避難受入状況</h1> <img class="title-logo" src="./images/logo.png" alt="Logo" >
   </div>
-  <div class="col-12 col-sm-6">
-    <div id="midousuji-road-2" class="row p-2 m-0">
-      <div id="west-offices-zone-2" class="col-5">
+  <div class="map-wrapper">
+    <!-- map -->
+    <div class="map-container">
+      <div class="map map_z2">
         <?php
-          foreach ($west_offices_id_2 as &$office) {
-            render_office($office);
-          }
-        ?>
-      </div>
-      <div class="col-2 p-0 bg- text-dark bg-opacity-10">
-        <div style="min-height:400px;">
-        </div>
-      </div>
-      <div id="east-offices-zone-2" class="col-5">
-        <?php
-          foreach ($east_offices_id_2 as &$office) {
-            render_office($office);
-          }
-        ?>
-      </div>
-    </div>
-  </div>
-  <div class="col-12 col-sm-6">
-    <div class="row ps-3 pt-2">
-      <span id="box" class="bg-success"></span><span class="col">受入中</span>
-    </div>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">施設</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php
-          $offices = get_all_facilities_accepting_evacuation();
-          $offices = filter_zone ($offices,(array_merge($east_offices_id_2,$west_offices_id_2)));
+          $offices = get_all_offices_by_zone(2);
           foreach ($offices as &$office) {
-            render_facilitie_accepting_evacuation($office);
+            render_office($office);
           }
         ?>
-        </tr>
-      </tbody>
-    </table>
+        <img class="north-point" title="north ^" src='./images/cardinal-point.png'/>
+      </div>
+    </div>
+    <!-- building list -->
+    <div class="building-list">
+      <?php
+        $offices = get_all_facilities_accepting_evacuation();
+        $offices = filter_zone ($offices,(get_all_offices_by_zone(2)));
+        foreach ($offices as &$office) {
+          render_facilitie_item($office);
+        }
+        if(!$offices){
+          render_no_office();
+        }
+      ?>
+    </div>
+
+  </div>
+  <!-- note -->
+  <div class="note-wrapper">
+    <span class="circle green show" style="position:relative;"></span>
+    <span>&nbsp;受入中  *最新情報は現地でお確かめください</span>
   </div>
 </div>
+  <a class="nav nav-left" href="./?page=zone-1">  &lt; Z-1</a>
+  <a class="nav nav-right" href="./?page=all-zone"> ALL></a>

@@ -1,41 +1,45 @@
-<?php add_css("all-zone.scss") ?>
-<div class="container mt-5 py-4 row mx-auto">
-  <div class="col-12 mb-3 text-center">
-    <span class="text-success border-bottom border-3 border-success fs-1 pb-2">避難場所の受入状況全体地図</span>
+<?php add_css("zone-1.css");add_css("zone-2.css");add_css("all-zone.css");?>
+<div class="content-wrapper">
+  <!-- title -->
+  <div class="title-wrapper">
+    <h1>　一時避難　受入施設状況</h1> <img class="title-logo" src="./images/logo.png" alt="Logo" >
   </div>
-  <div class="col-7">
-    <div id="midousuji-road" class="row p-2 ms-auto">
-      <div id="all-west-offices" class="col-6">
+  <div class="map-title-wrapper">
+    <span class="map-title">▼淀屋橋駅周辺</span>   
+    <span class="map-title">▼本町橋駅周辺</span>
+  </div>
+  <div class="map-wrapper">
+    <!-- map -->
+    <div class="map-container">
+      <div class="map map_z1">
         <?php
-          foreach ($all_west_offices_id as &$office) {
+          $offices = get_all_offices_by_zone(1);
+          foreach ($offices as &$office) {
+            render_office($office);
+          }
+        ?>
+        <img class="north-point" title="north ^" src='./images/cardinal-point.png'/>
+      </div>
+    </div>
+    <!-- building list -->
+    <div class="map-container">
+      <div class="map map_z2">
+        <?php
+          $offices = get_all_offices_by_zone(2);
+          foreach ($offices as &$office) {
             render_office($office);
           }
         ?>
       </div>
-      <div id="all-east-offices" class="col-6">
-        <?php
-          foreach ($all_east_offices_id as &$office) {
-            render_office($office);
-          }
-        ?>
-      </div>
     </div>
+
   </div>
-  <div id="midousuji-road-nav" class="col-5 text-start">
-    <div id="road-nav-1" class="border-start border-success border-3">
-      <a href="?page=zone-1">⓵</a>
-    </div>
-    <div id="road-nav-2" class="border-start border-success border-3">
-      <a href="?page=zone-2">⓶</a>
-    </div>
-    <div id="road-nav-3" class="border-start border-success border-3">
-      <a href="?page=zone-3">⓷</a>
-    </div>
-    <div id="road-nav-4" class="border-start border-success border-3">
-      <a href="?page=zone-4">⓸</a>
-    </div>
+  <!-- note -->
+  <div class="note-wrapper">
+    <span class="circle green show" style="position:relative;"></span>
+    <span>&nbsp;受入中  *最新情報は現地でお確かめください</span>
   </div>
-  <div class="row ps-3 pt-2">
-    <span class="bg-success" style="width: 25px;height:25px;border-radius:50%;"></span><span class="col">受入中</span>
-  </div>
+
 </div>
+    <a class="nav nav-left" href="./?page=zone-2">  &lt; Z-2</a>
+    <a class="nav nav-right" href="./?page=zone-1"> Z-1 ></a>

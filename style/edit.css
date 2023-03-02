@@ -1,0 +1,40 @@
+.table-wrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+table, th, td {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+caption{
+    border: 1px solid white;
+    background-color: #96D4D4;
+}
+th{
+  background-color: #96D4D4;
+}
+.btn {
+    padding: 2px 5px 2px 5px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    transition: all ease 0.3s;
+}
+.change-on{
+  background-color: rgba(211, 211, 211, 0.3);
+  border: solid 1px rgba(0, 210, 32, 1);
+  color: rgba(0, 210, 32, 1);
+}
+.change-on:hover{
+  background-color: rgba(0, 210, 32, 0.8);
+  color: white;
+}
+.change-off{
+background-color: rgba(211, 211, 211, 0.3);
+  border: solid 1px  rgba(210, 0, 0,1);
+  color: rgba(210, 0, 0, 1);
+}
+.change-off:hover{
+    background-color: rgba(210, 0, 0, 0.8);
+    color: white;
+}

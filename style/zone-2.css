@@ -1,0 +1,101 @@
+.map_z2{
+  background-image: url("../images/zone-2.jpg") !important;
+}
+/* compas */
+.north-point{
+    position: absolute;
+    width: 120px;
+    left: 0%;
+    top: 74.6%;
+}
+/* dot in map */
+/* 
+    0_pos_n , n = number id of office
+    left as x coordinate
+    top as y coordinate
+*/
+/*  office_position_1 */
+.o_pos-29{
+    left: 56%;
+    top: 3.5%;
+}
+.o_pos-30{
+    left: 74%;
+    top: 8.5%;
+}
+.o_pos-31{
+    left: 55%;
+    top: 14%;
+}
+.o_pos-32{
+    left: 13%;
+    top: 5.2%;
+}
+.o_pos-33{
+    left: 32%;
+    top: 8%;
+}
+.o_pos-34{
+    left: 53%;
+    top: 20%;
+}
+.o_pos-35{
+    left: 10%;
+    top: 19%;
+}
+.o_pos-36{
+    left: 31%;
+    top: 19%;
+}
+.o_pos-37{
+    left: 54%;
+    top: 27.5%;
+}
+.o_pos-38{
+    left: 31%;
+    top: 27%;
+}
+.o_pos-39{
+    left: 31%;
+    top: 31.5%;
+}
+.o_pos-40{
+    left: 53.5%;
+    top: 39.5%;
+}
+.o_pos-41{
+    left: 30%;
+    top: 37%;
+}
+.o_pos-42{
+    left: 30%;
+    top: 42.3%;
+}
+.o_pos-43{
+    left: 12%;
+    top: 50%;
+}
+.o_pos-44{
+    left: 27%;
+    top: 50%;
+}
+.o_pos-45{
+    left: 10%;
+    top: 62%;
+}
+.o_pos-46{
+    left: 28%;
+    top: 63%;
+}
+.o_pos-47{
+    left: 54%;
+    top: 79%;
+}
+.o_pos-48{
+    left: 27%;
+    top: 74.6%;
+}
+.o_pos-49{
+    left: 26%;
+    top: 83.5%;
+}
